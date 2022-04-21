@@ -8,6 +8,7 @@
                  <center><img src="../assets/dnsc_bg.png" id="img">
                               <span id="signup">Requesting Management System</span> <br><br>
                 </center>
+
                 <div class="mx-4">
                     <div class="mx-4">
                         <label class="block font-normal  ml-1">Email</label>
@@ -22,7 +23,7 @@
                         <button type="submit" class="mt-4 w-full bg-green-700 text-white py-2 px-6 rounded-lg text-my-50" @click="signin">SIGN IN</button>
                     </div>
                     <div class="flex justify-center items-baseline">
-                        <router-link class="text-sm hover:underline mt-4 mr-6 nav-link" :to="{name: 'SignUp'}">Not Yet Have Account? <span class="click"> Click Here </span> </router-link>
+                        <router-link class="text-sm hover:underline mt-4 mr-6 nav-link" :to="{name: 'SignUpUser'}">Not Yet Have Account? <span class="click"> Click Here </span> </router-link>
                         
 
                     </div>
@@ -45,7 +46,7 @@
 import axios from 'axios'
 
   export default {
-    name: 'LoginForm',
+    name: 'SignUpUser',
     data(){
       return {
         Email: '',
@@ -59,6 +60,7 @@ import axios from 'axios'
         let data = {
         'Email': this.Email,
         'Password': this.Password,
+        'Position': this.Student,
         }
 
         axios.post("http://localhost:3307/auth", data).then((res) => {
@@ -68,7 +70,7 @@ import axios from 'axios'
               localStorage.setItem('userData', res.data[0]);
               this.$router.push('/');
             }else{
-              alert('Incorrect Email and Password');
+              alert('Incorrect Email and Password or Wrong Type');
             }
 
      

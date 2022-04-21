@@ -1,27 +1,25 @@
 <template>
 <div id="app">
-  
+
   <router-view></router-view>
-  <!--<LoginForm/>-->
-  <!--<SignUp/>-->
+  
+<Dashboard/>
+
+   
 </div> 
+
 </template>
 <script>
 
 
-//import LoginForm from './components/LoginForm.vue';
-//import SignUp from './components/SignUp.vue';
+import Dashboard from './components/Dashboard.vue'
 export default {
-  components:{  
-    //LoginForm,
-    //SingUp
-   
-  },
-  data() 
-  {
-    return{
-      showPassword: false
-    }
+  name: 'App',
+  components: {  
+
+Dashboard
+
+  
   }
 }
 </script>

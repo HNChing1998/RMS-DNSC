@@ -50,12 +50,8 @@
                        </div>
 
                        <div class="">
-                          <label class="block mt-3 font-normal ml-1">Type:</label>
-                            <select name="Type" id="Type" v-model="Type" class="border w-full h-100 px-3 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-green-600 rounded-md text-gray-500">
-                               <option value="Requestor">Requestor</option>
-                              <option value="Admin">Admin</option>
-                        
-                            </select>
+                          
+                            <input type="hidden" placeholder="Type" v-model="Type" value="Requestor">
                        </div>
 
                    
@@ -71,7 +67,7 @@
                         </div>
                         <div class="flex justify-center items-baseline">
                        
-                            <router-link class="text-sm hover:underline mt-4 mr-6 nav-link" :to="{name: 'LoginForm'}">Have Account? <span class="click">Click Here!</span> </router-link>
+                            <router-link class="text-sm hover:underline mt-4 mr-6 nav-link" :to="{name: 'LoginFormUser'}">Have Account? <span class="click">Click Here!</span> </router-link>
                         
 
                         </div>
@@ -96,8 +92,7 @@
 <script>
 import axios from "axios";
 export default {
-  name: 'LoginFormUser',
-
+  name: 'LoginForm',
  
   data:() => ({
    
@@ -107,7 +102,7 @@ export default {
     Institute: null,
     Gender: null,
     Position: null,
-    Type: null,
+    Type: 'Requestor',
   
 
 
@@ -116,7 +111,7 @@ export default {
 
   methods:{
     submitEmail(){
-       alert("Validate Email")
+       alert("Validated Email")
     },
     validateEmail(Email){
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -183,7 +178,8 @@ export default {
 }
 #bg{
     
-    background:linear-gradient(90deg,	#006633, #00994C, #00CC66)
+    background:linear-gradient(90deg,	#006633, #00994C, #00CC66);
+  
 }
 
 </style>
